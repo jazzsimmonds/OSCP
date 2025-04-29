@@ -83,6 +83,7 @@
 * [inspecting user trails](linux-priv-esc/inspecting-user-trails.md)
 * [/etc/passwd](linux-priv-esc/etc-passwd.md)
 * [kernel](linux-priv-esc/kernel.md)
+* [Disk group](linux-priv-esc/disk-group.md)
 
 ## Active Directory
 
