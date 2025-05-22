@@ -33,8 +33,14 @@ Use Sigma Potato to add a new user:
 .\SigmaPotato "net user dave4 lab /add"
 ```
 
-
-
-
-
 {% embed url="https://jlajara.gitlab.io/Potatoes_Windows_Privesc" %}
+
+
+
+Printspoofer:
+
+If you have an **interactive** shell, you can create a new SYSTEM process in your current console.
+
+```
+PrintSpoofer.exe -i -c cmd
+```
