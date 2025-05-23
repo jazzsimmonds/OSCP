@@ -23,7 +23,7 @@
 
 ## Password Attacks
 
-* [Page 1](password-attacks/page-1.md)
+* [Password Spraying](password-attacks/password-spraying.md)
 
 ***
 

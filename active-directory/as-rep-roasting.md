@@ -2,6 +2,14 @@
 
 Without Kerberos preauthentication in place, an attacker could send an AS-REQ to the domain controller on behalf of any AD user. After obtaining the AS-REP from the domain controller, the attacker could perform an offline password attack against the encrypted part of the response. This attack is known as [_AS-REP Roasting_](https://harmj0y.medium.com/roasting-as-reps-e6179a65216b).
 
+Veryify usernames:
+
+{% code overflow="wrap" %}
+```shell
+kerbrute -domain hutch.offsec -users ./users.txt -dc-ip 192.168.219.122
+```
+{% endcode %}
+
 ## Linux
 
 On Kali, we can use [**impacket-GetNPUsers**](https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetNPUsers.py) to perform AS-REP roasting:
