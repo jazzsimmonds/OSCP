@@ -24,7 +24,7 @@
 ## Password Attacks
 
 * [Password Cracking](password-attacks/password-cracking.md)
-* [Password Guessing](password-attacks/password-guessing.md)
+* [Password Guessing](password-attacks/page-1.md)
 
 ***
 
@@ -72,6 +72,7 @@
 ***
 
 * [SeImpersonatePrivilege](seimpersonateprivilege.md)
+* [FullPowers.exe](fullpowers.exe.md)
 * [exploits](exploits.md)
 
 ## Linux Priv Esc
