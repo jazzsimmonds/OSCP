@@ -115,7 +115,11 @@
 
 * [Golden Ticket](golden-ticket.md)
 * [Shadow Copies](shadow-copies.md)
-* [ReadLAPSPassword](readlapspassword.md)
+* [Permissions](permissions/README.md)
+  * [GenericWrite](permissions/genericwrite.md)
+  * [GenericAll](permissions/genericall.md)
+  * [WriteDACL](permissions/writedacl.md)
+  * [ReadLAPSPassword](permissions/readlapspassword.md)
 
 ## AWS Cloud
 
