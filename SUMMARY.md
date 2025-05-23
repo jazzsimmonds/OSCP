@@ -23,7 +23,8 @@
 
 ## Password Attacks
 
-* [Password Spraying](password-attacks/password-spraying.md)
+* [Password Cracking](password-attacks/password-cracking.md)
+* [Password Guessing](password-attacks/password-guessing.md)
 
 ***
 
