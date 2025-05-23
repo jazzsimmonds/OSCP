@@ -8,4 +8,8 @@ Transfer [PowerView.ps1](https://raw.githubusercontent.com/PowerShellMafia/Power
 . .\PowerView.ps1
 
 Invoke-AllChecks
+
+Get-NetDomain
+
+Get-NetUser
 ```

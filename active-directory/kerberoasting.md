@@ -4,7 +4,7 @@ The service ticket is encrypted using the SPN's password hash. If we can request
 
 ## Linux
 
-Enumerates SPN accounts and requests their Kerberos service tickets:
+Enumerates SPN accounts:
 
 {% code overflow="wrap" %}
 ```
