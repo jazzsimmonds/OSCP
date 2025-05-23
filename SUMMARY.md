@@ -95,6 +95,9 @@
 
 * [Enumeration](active-directory/enumeration/README.md)
   * [LDAP Enumeration](active-directory/enumeration/ldap-enumeration.md)
+  * [PowerView.ps1](active-directory/enumeration/powerview.ps1.md)
+  * [PsLoggedOn.exe](active-directory/enumeration/psloggedon.exe.md)
+  * [setspn.exe](active-directory/enumeration/setspn.exe.md)
 * [BloodHound](active-directory/bloodhound.md)
 * [AS-REP Roasting](active-directory/as-rep-roasting.md)
 * [Kerberoasting](active-directory/kerberoasting.md)

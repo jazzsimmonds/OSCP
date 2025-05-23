@@ -140,6 +140,8 @@ Foreach($obj in $result)
 
 * `$prop.memberof` - print what groups they are a member of
 
+
+
 ### <mark style="background-color:purple;">enumerate operating systems</mark>
 
 enumerate the computer objects in the\
@@ -189,17 +191,17 @@ HKLM:SYSTEM\CurrentControlSet\Services\LanmanServer\DefaultSecurity\ | fl
 
 ### <mark style="background-color:purple;">enumerate Service Principal Names (SPN)</mark>
 
-List SPN linked to a certain user account:
+Enumerate SPNs in the domain with setspn.exe
 
 ```powershell
 setspn -L iis_service 
 ```
 
-List the SPN accounts in the domain:
+Enumerate SPNs
 
 {% code overflow="wrap" %}
 ```powershell
-Get-NetUser -SPN | select samaccountname,serviceprincipalname 
+Get-NetUser -SPN | select samaccountname,serviceprincipalname
 ```
 {% endcode %}
 
