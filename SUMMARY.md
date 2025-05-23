@@ -33,6 +33,7 @@
 
 ## Web App Exploits
 
+* [Password Attacks](web-app-exploits/password-attacks.md)
 * [Directory traversal](web-app-exploits/directory-traversal.md)
 * [File inclusion](web-app-exploits/file-inclusion.md)
 * [Command Injection](web-app-exploits/command-injection.md)
@@ -108,6 +109,7 @@
 
 * [Golden Ticket](golden-ticket.md)
 * [Shadow Copies](shadow-copies.md)
+* [ReadLAPSPassword](readlapspassword.md)
 
 ## AWS Cloud
 
