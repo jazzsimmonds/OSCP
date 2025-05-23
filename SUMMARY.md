@@ -61,7 +61,8 @@
 
 ## Windows Priv Esc
 
-* [Enumeration](windows-priv-esc/enumeration.md)
+* [Enumeration](windows-priv-esc/enumeration/README.md)
+  * [PowerView.ps1](windows-priv-esc/enumeration/powerview.ps1.md)
 * [Files](windows-priv-esc/files.md)
 * [Service Binary Hijacking](windows-priv-esc/service-binary-hijacking.md)
 * [DLL Hijacking](windows-priv-esc/dll-hijacking.md)

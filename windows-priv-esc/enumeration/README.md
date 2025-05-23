@@ -4,31 +4,31 @@
 
 {% stepper %}
 {% step %}
-[Username and hostname](enumeration.md#username-and-hostname)
+[Username and hostname](./#username-and-hostname)
 {% endstep %}
 
 {% step %}
-[Group memberships of the current user](enumeration.md#group-memberships-of-the-current-user)
+[Group memberships of the current user](./#group-memberships-of-the-current-user)
 {% endstep %}
 
 {% step %}
-[Existing users and groups](enumeration.md#existing-users-and-groups)
+[Existing users and groups](./#existing-users-and-groups)
 {% endstep %}
 
 {% step %}
-[Operating system, version and architecture](enumeration.md#operating-system-version-and-architecture)
+[Operating system, version and architecture](./#operating-system-version-and-architecture)
 {% endstep %}
 
 {% step %}
-[Network information](enumeration.md#network-information)
+[Network information](./#network-information)
 {% endstep %}
 
 {% step %}
-[Installed applications](enumeration.md#installed-applications)
+[Installed applications](./#installed-applications)
 {% endstep %}
 
 {% step %}
-[Running processes](enumeration.md#running-processes)
+[Running processes](./#running-processes)
 {% endstep %}
 {% endstepper %}
 
