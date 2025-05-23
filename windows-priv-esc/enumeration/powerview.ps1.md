@@ -6,4 +6,6 @@ Transfer [PowerView.ps1](https://raw.githubusercontent.com/PowerShellMafia/Power
 
 ```powershell
 . .\PowerView.ps1
+
+Invoke-AllChecks
 ```

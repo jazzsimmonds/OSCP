@@ -95,6 +95,7 @@
 
 * [Enumeration](active-directory/enumeration/README.md)
   * [LDAP Enumeration](active-directory/enumeration/ldap-enumeration.md)
+* [BloodHound](active-directory/bloodhound.md)
 * [AS-REP Roasting](active-directory/as-rep-roasting.md)
 * [Kerberoasting](active-directory/kerberoasting.md)
 * [Silver Tickets](active-directory/silver-tickets.md)
