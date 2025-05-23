@@ -7,24 +7,5 @@ Transfer [PowerView.ps1](https://raw.githubusercontent.com/PowerShellMafia/Power
 {% code overflow="wrap" %}
 ```powershell
 . .\PowerView.ps1
-
-Invoke-AllChecks
-
-Get-NetDomain
-
-Get-NetUser
-
-Get-NetComputer
-Get-NetComputer | select 
-dnshostname,operatingsystem,operatingsystemversion
-
-Find-LocalAdminAccess 
-
-Get-NetSession -ComputerName files04 -Verbose 
-
-Get-Acl -Path 
-HKLM:SYSTEM\CurrentControlSet\Services\LanmanServer\DefaultSecurity\ | fl 
-
-
 ```
 {% endcode %}
