@@ -104,6 +104,7 @@
   * [setspn.exe](active-directory/enumeration/setspn.exe.md)
 * [BloodHound](active-directory/bloodhound.md)
 * [Mimikatz](active-directory/mimikatz.md)
+* [Password Attacks](active-directory/password-attacks.md)
 * [AS-REP Roasting](active-directory/as-rep-roasting.md)
 * [Kerberoasting](active-directory/kerberoasting.md)
 * [Silver Tickets](active-directory/silver-tickets.md)
