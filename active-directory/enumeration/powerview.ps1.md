@@ -42,9 +42,12 @@ Enumerate the computer objects in the&#x20;domain:
  Get-NetComputer 
 ```
 
+{% code overflow="wrap" %}
 ```powershell
  Get-NetComputer | select operatingsystem,dnshostname
+ Get-NetComputer "web04.corp.com"
 ```
+{% endcode %}
 
 Query operating system and version:
 
