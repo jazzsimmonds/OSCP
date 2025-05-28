@@ -58,11 +58,14 @@ dnshostname,operatingsystem,operatingsystemversion
 
 ### Permissions and Logged On Users
 
-Scan domain to find local administrative privileges for our user:
+Find machines our user has administrative privs on:
 
 ```powershell
 Find-LocalAdminAccess
 ```
+
+* Get IP address of machine: `Resolve-DnsName web04.corp.com`&#x20;
+* Access the machine: `xfreerdp /u:{username} /p:'{password}' /d:{domain} /v:{machine_ip} +clipboard`
 
 Check logged on users with `Get-NetSession`:
 
@@ -72,7 +75,7 @@ Get-NetSession -ComputerName web04 -Verbose
 Get-NetSession -ComputerName client74
 ```
 
-Display permissions on the DefaultSecurity registry hive:
+Display permissions on the DefaultSecurity registry hive (**SrvsvcSessionInfo** registry key):
 
 {% code overflow="wrap" %}
 ```powershell
