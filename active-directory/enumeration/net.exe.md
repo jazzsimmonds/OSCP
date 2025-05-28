@@ -24,5 +24,18 @@ Inspect group in the domain:
 net group "Sales Department" /domain
 ```
 
+Add user to domain group:
 
+{% code overflow="wrap" %}
+```powershell
+net group "Management Department" stephanie /add /domain
+```
+{% endcode %}
 
+Delete user from domain group:
+
+{% code overflow="wrap" %}
+```powershell
+net group "Management Department" stephanie /del /domain
+```
+{% endcode %}

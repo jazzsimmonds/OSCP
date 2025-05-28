@@ -64,7 +64,7 @@ Find machines our user has administrative privs on:
 Find-LocalAdminAccess
 ```
 
-* Get IP address of machine: `Resolve-DnsName web04.corp.com`&#x20;
+* Get IP address of machine: `Resolve-DnsName web04.corp.com` or `nslookup.exe web04.corp.com`&#x20;
 * Access the machine: `xfreerdp /u:{username} /p:'{password}' /d:{domain} /v:{machine_ip} +clipboard`
 
 Check logged on users with `Get-NetSession`:
@@ -98,11 +98,14 @@ Get-NetUser -SPN | select samaccountname,serviceprincipalname
 
 ### Object Permissions
 
-Enumerate ACEs:
+Enumerate a user's access control entries (ACEs):
 
 ```powershell
 Get-ObjectAcl -Identity stephanie
 ```
+
+* ObjectSID - The unique Security Identifier (SID) of the object being queried; this identifies the Active Directory object itself (such as a user, group, or computer).
+* SecurityIdentifier - The SID of the user, group, or computer that the Access Control Entry (ACE) applies to; this represents who has been granted or denied permissions on the object.
 
 Convert SID to a domain object name:
 
