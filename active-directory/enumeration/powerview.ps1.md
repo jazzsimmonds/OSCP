@@ -17,6 +17,7 @@ Get-NetUser
 ```powershell
 Get-NetUser | select cn
 Get-NetUser | select cn,pwdlastset,lastlogon
+Get-NetUser "fred"
 ```
 
 ### Enumerate Groups
