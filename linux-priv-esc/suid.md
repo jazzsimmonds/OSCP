@@ -14,6 +14,8 @@ find / -perm -u=s -type f 2>/dev/null
 /usr/sbin/getcap -r / 2>/dev/null
 ```
 
+* **CAP\_SETUID**&#x20;
+
 <mark style="background-color:green;">check results on</mark> [<mark style="background-color:green;">https://gtfobins.github.io/</mark>](https://gtfobins.github.io/)&#x20;
 
 | binary with SUID | priv esc command                                                                                                                                                                                |
