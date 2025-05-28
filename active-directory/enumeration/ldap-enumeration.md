@@ -172,3 +172,122 @@ $group.properties | select {$_.cn}, {$_.member}
 ```
 {% endcode %}
 
+Store the search results:
+
+{% code overflow="wrap" %}
+```powershell
+$sales = LDAPSearch -LDAPQuery "(&(objectCategory=group)(cn=Sales Department))"
+```
+{% endcode %}
+
+{% code overflow="wrap" %}
+```powershell
+$group = LDAPSearch -LDAPQuery "(&(objectCategory=group)(cn=Development Department*))"
+```
+{% endcode %}
+
+Print attribute from results:
+
+```powershell
+$sales.properties.member
+```
+
+### Check for nested groups
+
+{% code overflow="wrap" %}
+```powershell
+function Get-NestedGroupMembers {
+    param (
+        [string]$GroupDN,
+        [System.Collections.Hashtable]$VisitedGroups = @{}
+    )
+
+    if ($VisitedGroups.ContainsKey($GroupDN)) {
+        Write-Host "[!] Already visited group: $GroupDN"
+        return
+    }
+    $VisitedGroups[$GroupDN] = $true
+
+    Write-Host "`n[*] Processing group: $GroupDN"
+
+    $searcher = New-Object DirectoryServices.DirectorySearcher
+    $searcher.Filter = "(distinguishedName=$GroupDN)"
+    $searcher.PropertiesToLoad.Add("member") | Out-Null
+    $result = $searcher.FindOne()
+
+    if ($result -eq $null) {
+        Write-Host "[!] Group not found or inaccessible: $GroupDN"
+        return
+    }
+
+    foreach ($memberDN in $result.Properties["member"]) {
+        $memberSearcher = New-Object DirectoryServices.DirectorySearcher
+        $memberSearcher.Filter = "(distinguishedName=$memberDN)"
+        $memberSearcher.PropertiesToLoad.Add("objectClass") | Out-Null
+        $memberSearcher.PropertiesToLoad.Add("cn") | Out-Null
+        $memberSearcher.PropertiesToLoad.Add("samaccountname") | Out-Null
+        $memberSearcher.PropertiesToLoad.Add("description") | Out-Null
+        $memberSearcher.PropertiesToLoad.Add("info") | Out-Null
+        $memberSearcher.PropertiesToLoad.Add("userprincipalname") | Out-Null
+
+        $memberResult = $memberSearcher.FindOne()
+
+        if ($memberResult -eq $null) {
+            Write-Host "[!] Could not find member: $memberDN"
+            continue
+        }
+
+        $objectClasses = $memberResult.Properties["objectClass"]
+
+        if ($objectClasses -contains "group") {
+            Write-Host "[+] Nested group found: $memberDN"
+            # Recursive call
+            Get-NestedGroupMembers -GroupDN $memberDN -VisitedGroups $VisitedGroups
+        }
+        elseif ($objectClasses -contains "user") {
+            Write-Host "    - User found: $($memberResult.Properties["samaccountname"]) (CN: $($memberResult.Properties["cn"]))"
+            # Optionally, print more user info here if needed
+        }
+        else {
+            Write-Host "[?] Unknown object type for: $memberDN"
+        }
+    }
+}
+
+# Start from your initial group DN here:
+$startGroupDN = "CN=Service Personnel,CN=Users,DC=corp,DC=com"
+
+Get-NestedGroupMembers -GroupDN $startGroupDN
+
+```
+{% endcode %}
+
+#### Get user properties
+
+{% code overflow="wrap" %}
+```powershell
+$userDN = "CN=michelle,CN=Users,DC=corp,DC=com"
+
+$searcher = New-Object DirectoryServices.DirectorySearcher
+$searcher.Filter = "(distinguishedName=$userDN)"
+# Load all properties you want to check
+$propertiesToLoad = @("cn", "samaccountname", "description", "info", "userprincipalname", "comment", "displayName")
+foreach ($prop in $propertiesToLoad) {
+    $searcher.PropertiesToLoad.Add($prop) | Out-Null
+}
+
+$result = $searcher.FindOne()
+
+if ($result -ne $null) {
+    Write-Host "===== User properties ====="
+    foreach ($prop in $propertiesToLoad) {
+        $val = $result.Properties[$prop]
+        if ($val) {
+            Write-Host "$prop : $val"
+        }
+    }
+} else {
+    Write-Host "User not found or no access"
+}
+```
+{% endcode %}
