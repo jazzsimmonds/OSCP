@@ -1,5 +1,7 @@
 # PowerView.ps1
 
+{% embed url="https://powersploit.readthedocs.io/en/latest/Recon/" %}
+
 ### Enumerate OS
 
 Enumerate the computer objects in the&#x20;domain:
