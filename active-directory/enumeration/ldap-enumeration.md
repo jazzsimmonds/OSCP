@@ -33,7 +33,7 @@ $LDAP
 ```
 {% endcode %}
 
-#### _**adding search functionality to the script**_
+#### _**Receive all objects in the entire domain**_
 
 {% code title="enumeration_search.ps1" overflow="wrap" %}
 ```powershell
@@ -52,7 +52,7 @@ $dirsearcher.FindAll()
 * `$direntry = New-Object System.DirectoryServices.DirectoryEntry($LDAP)` - encapsulating the obtained LDAP path
 * `$dirsearcher = New-Object System.DirectoryServices.DirectorySearcher($direntry)` - uses $direntry as the _SearchRoot_, pointing to the top of the hierarchy where _DirectorySearcher_ will run the _FindAll()_ method.
 
-#### _**filtering search functionality**_
+#### _**Enumerate all users in the domain**_
 
 {% code title="enumeration_filtered.ps1" overflow="wrap" %}
 ```powershell
@@ -100,7 +100,27 @@ Foreach($obj in $result)
 
 * `$prop.memberof` - print what groups they are a member of
 
-#### Adding Search Functionality
+#### Enumerate what groups a user belongs to&#x20;
+
+{% code overflow="wrap" %}
+```powershell
+$dirsearcher = New-Object System.DirectoryServices.DirectorySearcher($direntry)
+$dirsearcher.filter="name=jeffadmin"
+$result = $dirsearcher.FindAll()
+
+Foreach($obj in $result)
+{
+    Foreach($prop in $obj.Properties)
+    {
+        $prop.memberof
+    }
+
+    Write-Host "-------------------------------"
+}
+```
+{% endcode %}
+
+### Searchable script
 
 {% code title="filter.ps1" overflow="wrap" %}
 ```powershell
@@ -128,15 +148,21 @@ Import to memory:
 Import-Module .\filter.ps1
 ```
 
-Call script and use it to search:
+#### Call script and use it to search:
+
+Search by account type:
 
 ```powershell
 LDAPSearch -LDAPQuery "(samAccountType=805306368)"
 ```
 
+List all the groups in the domain:
+
 ```powershell
 LDAPSearch -LDAPQuery "(objectclass=group)"
 ```
+
+Enumerate every group available in the domain and display the user members:
 
 {% code overflow="wrap" %}
 ```powershell

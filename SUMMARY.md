@@ -94,7 +94,9 @@
 
 ## Active Directory
 
+* [Connect](active-directory/connect.md)
 * [Enumeration](active-directory/enumeration/README.md)
+  * [net.exe](active-directory/enumeration/net.exe.md)
   * [LDAP Enumeration](active-directory/enumeration/ldap-enumeration.md)
   * [PowerView.ps1](active-directory/enumeration/powerview.ps1.md)
   * [PsLoggedOn.exe](active-directory/enumeration/psloggedon.exe.md)
