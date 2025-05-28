@@ -2,6 +2,37 @@
 
 {% embed url="https://powersploit.readthedocs.io/en/latest/Recon/" %}
 
+```powershell
+Import-Module .\PowerView.ps1
+```
+
+### Enumerate Users
+
+List all users:
+
+```powershell
+Get-NetUser
+```
+
+```powershell
+Get-NetUser | select cn
+Get-NetUser | select cn,pwdlastset,lastlogon
+```
+
+### Enumerate Groups
+
+List groups:
+
+```powershell
+Get-NetGroup | select cn
+```
+
+List members of a group:
+
+```powershell
+Get-NetGroup "Sales Department" | select member
+```
+
 ### Enumerate OS
 
 Enumerate the computer objects in the&#x20;domain:
