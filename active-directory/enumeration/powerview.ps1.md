@@ -144,5 +144,5 @@ List contents of share:
 ls \dc1.corp.com\sysvol\corp.com\
 ```
 
-
+* can check for [GPP passwords](../../gpp.md)
 
