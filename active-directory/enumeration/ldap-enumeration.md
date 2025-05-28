@@ -20,7 +20,7 @@
 
 returns the DN in the proper format for the LDAP path
 
-### _<mark style="background-color:blue;">**automate LDAP enumeration**</mark>_
+## **Automate LDAP enumeration**
 
 `powershell -ep bypass` - bypass the execution policy, which was designed to keep us from accidentally running PowerShell scripts
 
@@ -33,7 +33,7 @@ $LDAP
 ```
 {% endcode %}
 
-#### _**Receive all objects in the entire domain**_
+### **Receive all objects in the entire domain**
 
 {% code title="enumeration_search.ps1" overflow="wrap" %}
 ```powershell
@@ -52,7 +52,7 @@ $dirsearcher.FindAll()
 * `$direntry = New-Object System.DirectoryServices.DirectoryEntry($LDAP)` - encapsulating the obtained LDAP path
 * `$dirsearcher = New-Object System.DirectoryServices.DirectorySearcher($direntry)` - uses $direntry as the _SearchRoot_, pointing to the top of the hierarchy where _DirectorySearcher_ will run the _FindAll()_ method.
 
-#### _**Enumerate all users in the domain**_
+### **Enumerate all users in the domain**
 
 {% code title="enumeration_filtered.ps1" overflow="wrap" %}
 ```powershell
@@ -262,7 +262,7 @@ Get-NestedGroupMembers -GroupDN $startGroupDN
 ```
 {% endcode %}
 
-#### Get user properties
+### Get user properties
 
 {% code overflow="wrap" %}
 ```powershell
