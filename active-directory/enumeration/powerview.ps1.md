@@ -146,3 +146,63 @@ ls \dc1.corp.com\sysvol\corp.com\
 
 * can check for [GPP passwords](../../gpp.md)
 
+Check what shares are accessible for the current user:
+
+```powershell
+$shares = Find-DomainShare
+```
+
+{% code title="access.ps1" overflow="wrap" %}
+```powershell
+function Test-ShareAccess {
+    param (
+        [Parameter(Mandatory=$true)]
+        [PSObject[]]$Shares
+    )
+
+    foreach ($entry in $Shares) {
+        $computer = $entry.ComputerName
+        $sharePattern = $entry.Name
+
+        if ($sharePattern -like '*`*') {
+            try {
+                $matchedShares = Get-NetShare -ComputerName $computer -ErrorAction Stop | Where-Object { $_.Name -like $sharePattern }
+            } catch {
+                Write-Warning ("Failed to get shares from " + $computer + ": " + $_)
+                continue
+            }
+
+            foreach ($ms in $matchedShares) {
+                $path = "\\$computer\$($ms.Name)"
+                try {
+                    Get-ChildItem $path -ErrorAction Stop | Out-Null
+                    Write-Host "$path : Accessible" -ForegroundColor Green
+                } catch [System.UnauthorizedAccessException] {
+                    Write-Host "$path : Access Denied" -ForegroundColor Red
+                } catch {
+                    Write-Host "$path : Other Error - $($_.Exception.Message)" -ForegroundColor Yellow
+                }
+            }
+        } else {
+            $path = "\\$computer\$sharePattern"
+            try {
+                Get-ChildItem $path -ErrorAction Stop | Out-Null
+                Write-Host "$path : Accessible" -ForegroundColor Green
+            } catch [System.UnauthorizedAccessException] {
+                Write-Host "$path : Access Denied" -ForegroundColor Red
+            } catch {
+                Write-Host "$path : Other Error - $($_.Exception.Message)" -ForegroundColor Yellow
+            }
+        }
+    }
+}
+
+```
+{% endcode %}
+
+Import script and run it against the enumerated shares
+
+```powershell
+Import-Module ./access.ps1
+Test-ShareAccess -Shares $shares
+```

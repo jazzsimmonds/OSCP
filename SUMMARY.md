@@ -103,6 +103,7 @@
   * [PsLoggedOn.exe](active-directory/enumeration/psloggedon.exe.md)
   * [setspn.exe](active-directory/enumeration/setspn.exe.md)
 * [BloodHound](active-directory/bloodhound.md)
+* [Mimikatz](active-directory/mimikatz.md)
 * [AS-REP Roasting](active-directory/as-rep-roasting.md)
 * [Kerberoasting](active-directory/kerberoasting.md)
 * [Silver Tickets](active-directory/silver-tickets.md)
