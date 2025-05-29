@@ -1,10 +1,8 @@
 # Table of contents
 
-* [Linux](README.md)
-
 ## Services
 
-* [21 - FTP](services/21-ftp.md)
+* [21 - FTP](README.md)
 * [22 - SSH](services/22-ssh.md)
 
 ***
