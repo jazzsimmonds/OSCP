@@ -3,8 +3,10 @@
 {% hint style="danger" %}
 need access to a user that is a member of _Domain Admins_, _Enterprise Admins_, or _Administrators_
 
-* _or Replicating Directory Changes_, _Replicating Directory Changes All_, and _Replicating Directory Changes in Filtered Set_ rights
+* _Replicating Directory Changes_, _Replicating Directory Changes All_, and _Replicating Directory Changes in Filtered Set_ rights
 {% endhint %}
+
+The [_Directory Replication Service_](https://msdn.microsoft.com/en-us/library/cc228086.aspx) (DRS) Remote Protocol uses [_replication_](https://technet.microsoft.com/en-us/library/cc772726\(v=ws.10\).aspx) to synchronize these redundant domain controllers. A domain controller may request an update for a specific object, like an account, using the [_IDL\_DRSGetNCChanges_](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/b63730ac-614c-431c-9501-28d6aca91894) API. The domain controller receiving a request for an update does not check whether the request came from a known domain controller. Instead, it only verifies that the associated SID has appropriate privileges. If we attempt to issue a rogue update request to a domain controller from a user with certain rights it will succeed.
 
 By impersonating a domain controller, we can use replication to obtain any domain user credentials from a domain controller.&#x20;
 
