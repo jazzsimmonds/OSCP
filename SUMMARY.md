@@ -124,6 +124,7 @@
   * [GenericAll](permissions/genericall.md)
   * [WriteDACL](permissions/writedacl.md)
   * [ReadLAPSPassword](permissions/readlapspassword.md)
+  * [AllowedToDelegate](permissions/allowedtodelegate.md)
   * [ForceChangePassword](permissions/forcechangepassword.md)
 
 ## AWS Cloud
