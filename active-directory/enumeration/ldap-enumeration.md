@@ -156,6 +156,17 @@ Search by account type:
 LDAPSearch -LDAPQuery "(samAccountType=805306368)"
 ```
 
+Enumerate users:
+
+```powershell
+$results = LDAPSearch -LDAPQuery "(samAccountType=805306368)"
+
+foreach ($result in $results) {
+    $result.Properties["samaccountname"]
+}
+
+```
+
 List all the groups in the domain:
 
 ```powershell
