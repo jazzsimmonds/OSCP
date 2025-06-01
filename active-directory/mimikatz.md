@@ -4,6 +4,12 @@
 need to be a  local administrator
 {% endhint %}
 
+Run as administrator in powershell
+
+```powershell
+Start-Process powershell.exe -Verb RunAs
+```
+
 ### Start mimikatz:
 
 ```powershell
