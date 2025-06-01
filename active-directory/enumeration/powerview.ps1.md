@@ -34,6 +34,12 @@ List members of a group:
 Get-NetGroup "Sales Department" | select member
 ```
 
+Get domain admins:
+
+```powershell
+Get-NetGroupMember "Domain Admins"
+```
+
 ### Enumerate OS
 
 Enumerate the computer objects in the&#x20;domain:

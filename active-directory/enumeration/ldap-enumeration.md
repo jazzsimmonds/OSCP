@@ -173,6 +173,38 @@ List all the groups in the domain:
 LDAPSearch -LDAPQuery "(objectclass=group)"
 ```
 
+Get info on the domain controller:
+
+{% code overflow="wrap" %}
+```powershell
+$results = LDAPSearch -LDAPQuery "(&(objectCategory=computer)(userAccountControl:1.2.840.113556.1.4.803:=8192))"
+
+foreach ($result in $results) {
+    $props = $result.Properties
+    $hostname = $props["name"] | Select-Object -First 1
+    $fqdn = $props["dnshostname"] | Select-Object -First 1
+
+    try {
+        $ip = [System.Net.Dns]::GetHostAddresses($fqdn) | Where-Object { $_.AddressFamily -eq 'InterNetwork' }
+        $ipStr = $ip.IPAddressToString
+    } catch {
+        $ipStr = "Could not resolve"
+    }
+
+    Write-Host "`n[+] Domain Controller Info" -ForegroundColor Cyan
+    Write-Host "    Hostname         : $hostname"
+    Write-Host "    FQDN             : $fqdn"
+    Write-Host "    IP Address       : $ipStr"
+    Write-Host "    OS               : $($props["operatingsystem"] -join ', ')"
+    Write-Host "    OS Version       : $($props["operatingsystemversion"] -join ', ')"
+    Write-Host "    Created On       : $($props["whencreated"])"
+    Write-Host "    Last Logon       : $($props["lastlogon"])"
+    Write-Host "    DistinguishedName: $($props["distinguishedname"])"
+}
+
+```
+{% endcode %}
+
 Enumerate every group available in the domain and display the user members:
 
 {% code overflow="wrap" %}
