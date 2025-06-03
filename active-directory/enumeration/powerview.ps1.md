@@ -2,6 +2,8 @@
 
 {% embed url="https://powersploit.readthedocs.io/en/latest/Recon/" %}
 
+[https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993](https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993)&#x20;
+
 ```powershell
 Import-Module .\PowerView.ps1
 ```
