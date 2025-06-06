@@ -61,6 +61,7 @@
 
 * [DNS tunneling](dns-tunneling.md)
 * [Chisel](chisel.md)
+* [Ligolo](ligolo.md)
 
 ## Windows Priv Esc
 
