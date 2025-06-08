@@ -2,8 +2,8 @@
 
 _<mark style="background-color:purple;">**Enumerate cron jobs**</mark>_
 
-```powershell
-ls -lah /etc/cron*crontab -l
+```sh
+ls -lah /etc/cron*
 sudo crontab -l
 grep "CRON" /var/log/syslog
 cat /etc/cron.d/*
