@@ -6,6 +6,7 @@ _<mark style="background-color:purple;">**Enumerate cron jobs**</mark>_
 ls -lah /etc/cron*crontab -l
 sudo crontab -l
 grep "CRON" /var/log/syslog
+cat /etc/cron.d/*
 ```
 
 _<mark style="background-color:purple;">**add a reverse shell to cronjob**</mark>_
