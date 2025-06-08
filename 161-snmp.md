@@ -23,3 +23,52 @@ snmpwalk -c public -v1 <IP> 1.3.6.1.2.1.25.6.3.1.2 #Installed software enumeraio
 snmpwalk -c public -v1 <IP> 1.3.6.1.2.1.6.13.1.3 #Opened TCP Ports
 ```
 {% endcode %}
+
+
+
+Dump entire SNMP tree:
+
+{% code overflow="wrap" %}
+```shell
+snmpwalk -v2c -c public 192.168.179.156 .1 > snmpdump.txt
+```
+{% endcode %}
+
+Dump network interfaces information:
+
+{% code overflow="wrap" %}
+```shell
+snmpwalk -v2c -c public 192.168.179.156 .1.3.6.1.2.1.2.2
+```
+{% endcode %}
+
+Get device hostname:
+
+{% code overflow="wrap" %}
+```sh
+bashCopyEditsnmpget -v2c -c public 192.168.179.156 .1.3.6.1.2.1.1.5.0
+```
+{% endcode %}
+
+Dump detailed printer-related information from the device:
+
+{% code overflow="wrap" %}
+```sh
+snmpwalk -v2c -c public 192.168.179.156 .1.3.6.1.4.1.77.1.2.25
+```
+{% endcode %}
+
+Dump enterprise/vendor-specific device information:
+
+```shell
+snmpwalk -v2c -c public 192.168.179.156 .1.3.6.1.4.1
+```
+
+Filter by keywords:
+
+{% code overflow="wrap" %}
+```sh
+snmpwalk -v2c -c public 192.168.179.156 .1.3.6.1.4.1 | grep -i jack
+```
+{% endcode %}
+
