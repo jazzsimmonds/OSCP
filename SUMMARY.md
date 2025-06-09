@@ -33,8 +33,9 @@
 
 ## Web App Exploits
 
-* [Page](web-app-exploits/page/README.md)
-  * [WebDav](web-app-exploits/page/webdav.md)
+* [webapps](web-app-exploits/webapps/README.md)
+  * [WebDav](web-app-exploits/webapps/webdav.md)
+  * [git](web-app-exploits/webapps/git.md)
 * [Password Attacks](web-app-exploits/password-attacks.md)
 * [Directory traversal](web-app-exploits/directory-traversal.md)
 * [File inclusion](web-app-exploits/file-inclusion.md)
