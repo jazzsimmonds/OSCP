@@ -74,6 +74,7 @@
 * [DLL Hijacking](windows-priv-esc/dll-hijacking.md)
 * [scheduled tasks](windows-priv-esc/scheduled-tasks.md)
 * [Unquoted service paths](windows-priv-esc/unquoted-service-paths.md)
+* [Enumerate Creds](windows-priv-esc/enumerate-creds.md)
 * [SeBackupPrivilege](windows-priv-esc/sebackupprivilege.md)
 
 ***
