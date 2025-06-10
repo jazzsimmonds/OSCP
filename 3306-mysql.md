@@ -1,5 +1,7 @@
 # 3306 - MYSQL
 
+root:root
+
 MySQL Login:
 
 ```sh
