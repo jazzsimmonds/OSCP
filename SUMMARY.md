@@ -28,7 +28,8 @@
 
 ***
 
-* [NLTM](nltm.md)
+* [NLTM](nltm/README.md)
+  * [NTLM Relay](nltm/ntlm-relay.md)
 * [Net-NTLMv2](net-ntlmv2.md)
 * [GPP](gpp.md)
 
@@ -37,6 +38,7 @@
 * [webapps](web-app-exploits/webapps/README.md)
   * [WebDav](web-app-exploits/webapps/webdav.md)
   * [git](web-app-exploits/webapps/git.md)
+  * [Wordpress](web-app-exploits/webapps/wordpress.md)
 * [Password Attacks](web-app-exploits/password-attacks.md)
 * [Directory traversal](web-app-exploits/directory-traversal.md)
 * [File inclusion](web-app-exploits/file-inclusion.md)

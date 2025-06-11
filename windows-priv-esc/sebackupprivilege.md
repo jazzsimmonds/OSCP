@@ -8,7 +8,7 @@ whoami /priv
 
 * SeBackupPrivilege must be present
 
-[NLTM](../nltm.md)
+[NLTM](../nltm/)
 
 #### Exploitation:
 
