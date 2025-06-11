@@ -70,6 +70,7 @@
 * [Enumeration](windows-priv-esc/enumeration/README.md)
   * [PowerView.ps1](windows-priv-esc/enumeration/powerview.ps1.md)
 * [Files](windows-priv-esc/files.md)
+* [Anti-Virus Evasion](windows-priv-esc/anti-virus-evasion.md)
 * [Service Binary Hijacking](windows-priv-esc/service-binary-hijacking.md)
 * [DLL Hijacking](windows-priv-esc/dll-hijacking.md)
 * [scheduled tasks](windows-priv-esc/scheduled-tasks.md)
