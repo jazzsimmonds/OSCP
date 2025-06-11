@@ -10,9 +10,17 @@ web.config -&#x20;
 
 Groups.xml - Encrypted passwords but can be decrypted
 
+```
+c:\sysprep.inf
+c:\sysprep\sysprep.xml
+c:\unattend.xml
+%WINDIR%\Panther\Unattend\Unattended.xml
+%WINDIR%\Panther\Unattended.xml
+```
 
-
-
+\
+Scripts
+-------
 
 search for files:
 

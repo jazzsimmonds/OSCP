@@ -1,5 +1,31 @@
 # Enumerate Creds
 
+### VNC
+
+
+
+```
+reg query "HKCU\Software\ORL\WinVNC3\Password"
+```
+
+### Windows Autologin
+
+
+
+{% code overflow="wrap" %}
+```
+reg query "HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon"
+```
+{% endcode %}
+
+### SNMP
+
+
+
+```
+reg query "HKLM\SYSTEM\Current\ControlSet\Services\SNMP"
+```
+
 ### Registry
 
 Queries to enumerate for credentials in the Registry. Upon execution, any registry key containing the word "password" will be displayed.
