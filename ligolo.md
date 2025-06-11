@@ -1,5 +1,7 @@
 # Ligolo
 
+{% embed url="https://arth0s.medium.com/ligolo-ng-pivoting-reverse-shells-and-file-transfers-6bfb54593fa5" %}
+
 ### Set up on kali:
 
 {% code overflow="wrap" %}
