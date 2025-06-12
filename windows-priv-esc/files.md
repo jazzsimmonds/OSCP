@@ -18,6 +18,14 @@ c:\unattend.xml
 %WINDIR%\Panther\Unattended.xml
 ```
 
+Winpeas scan to check for interesting files:
+
+{% code overflow="wrap" %}
+```sh
+.\winPEASany.exe quiet cmd searchfast filesinfo
+```
+{% endcode %}
+
 \
 Scripts
 -------

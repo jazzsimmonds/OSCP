@@ -1,5 +1,19 @@
 # Enumerate Creds
 
+Use Winpeas to check for saved creds:
+
+```shell
+.\winPEASany.exe quiet cmd windowscreds
+```
+
+List saved credentials in Windows Credential Manager:
+
+```
+cmdkey /list
+```
+
+
+
 ### VNC
 
 

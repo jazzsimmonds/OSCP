@@ -84,6 +84,8 @@
 
 * [SeImpersonatePrivilege](seimpersonateprivilege.md)
 * [FullPowers.exe](fullpowers.exe.md)
+* [PowerUp.ps1](powerup.ps1.md)
+* [UAC Bypass](uac-bypass.md)
 * [exploits](exploits.md)
 
 ## Linux Priv Esc
